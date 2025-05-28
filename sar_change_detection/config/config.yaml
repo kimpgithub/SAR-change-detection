@@ -1,0 +1,35 @@
+# SAR 변화 탐지 설정 파일
+
+# 데이터 경로 설정
+data:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  results_dir: "data/results"
+
+# 차분 이미지 설정
+difference_image:
+  window_size: 5  # 로컬 평균 계산을 위한 윈도우 크기
+  epsilon: 1e-6   # 0으로 나누기 방지를 위한 작은 값
+
+# PCA 융합 설정
+pca_fusion:
+  return_weights: true  # 가중치 반환 여부
+
+# Gabor 특징 추출 설정
+gabor_features:
+  U: 8  # 방향 수
+  V: 5  # 스케일 수
+  kmax: 0.5  # 최대 주파수
+  f: 2  # 주파수 비율
+  sigma: 2  # 가우시안 표준편차
+
+# 클러스터링 설정
+clustering:
+  c: 3  # 클러스터 수
+  m: 2  # 퍼지 지수
+  max_iter: 100  # 최대 반복 횟수
+  tolerance: 1e-4  # 수렴 기준
+
+# 평가 메트릭 설정
+evaluation:
+  metrics: ["accuracy", "precision", "recall", "f1_score"] 
